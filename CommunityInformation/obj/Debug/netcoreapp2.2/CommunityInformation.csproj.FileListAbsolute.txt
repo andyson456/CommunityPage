@@ -15,7 +15,6 @@ C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\Communit
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\CommunityInformation.TagHelpers.output.cache
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\CommunityInformation.RazorCoreGenerate.cache
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
@@ -28,4 +27,6 @@ C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\Communit
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\CommunityInformation.dll
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\CommunityInformation.pdb
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\CommunityInformation.csproj.CopyComplete
-C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Home\About.g.cshtml.cs
+C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Home\History.g.cshtml.cs
+C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Home\Contact.g.cshtml.cs
+C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Info\Locations.g.cshtml.cs
