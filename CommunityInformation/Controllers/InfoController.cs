@@ -12,5 +12,19 @@ namespace CommunityInformation.Controllers
         {
             return View();
         }
-    }
+
+		public IActionResult Locations()
+		{
+			ViewData["Message"] = "Important locations and links.";
+
+			return View();
+		}
+
+		public IActionResult People()
+		{
+			ViewData["Message"] = "Significant people and links";
+
+			return View();
+		}
+	}
 }

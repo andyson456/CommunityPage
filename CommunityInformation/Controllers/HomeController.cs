@@ -12,7 +12,10 @@ namespace CommunityInformation.Controllers
 	{
 		public IActionResult Index()
 		{
-			return View();
+			int hour = DateTime.Now.Hour;
+			ViewBag.Greeting = hour < 12 ? "Good Morning World" : "Good Afternoon World";
+
+			return View("Index");
 		}
 
 		public IActionResult History()
