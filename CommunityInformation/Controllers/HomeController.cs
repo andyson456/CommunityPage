@@ -32,6 +32,20 @@ namespace CommunityInformation.Controllers
 			return View();
 		}
 
+		public IActionResult Locations()
+		{
+			ViewData["Message"] = "Your locations page";
+
+			return View();
+		}
+
+		public IActionResult People()
+		{
+			ViewData["Message"] = "Your people page";
+
+			return View();
+		}
+
 		public IActionResult Privacy()
 		{
 			return View();

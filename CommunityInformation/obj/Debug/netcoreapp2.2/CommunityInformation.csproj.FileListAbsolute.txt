@@ -29,5 +29,5 @@ C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\Communit
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\CommunityInformation.csproj.CopyComplete
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Home\History.g.cshtml.cs
 C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Home\Contact.g.cshtml.cs
-C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Info\Locations.g.cshtml.cs
-C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Info\People.g.cshtml.cs
+C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Home\Locations.g.cshtml.cs
+C:\Users\andys\OneDrive\Desktop\School Work\CS295N\CommunityInformation\CommunityInformation\obj\Debug\netcoreapp2.2\Razor\Views\Home\People.g.cshtml.cs
