@@ -34,14 +34,14 @@ namespace CommunityInformation.Controllers
 
 		public IActionResult Locations()
 		{
-			ViewData["Message"] = "Your locations page";
+			ViewData["Message"] = "Important locations and links";
 
 			return View();
 		}
 
 		public IActionResult People()
 		{
-			ViewData["Message"] = "Your people page";
+			ViewData["Message"] = "Significant people and links";
 
 			return View();
 		}
