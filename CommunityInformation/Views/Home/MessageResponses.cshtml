@@ -1,0 +1,17 @@
+﻿@model List<UserMessage>
+
+@{
+    ViewData["Title"] = "MessageResponses";
+}
+
+<h1>MessageResponses</h1>
+
+<table>
+   @{
+       foreach (UserMessage message in Model)
+       {
+           @message.Message;
+       }
+   }
+</table>
+

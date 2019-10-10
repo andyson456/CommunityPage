@@ -25,10 +25,21 @@ namespace CommunityInformation.Controllers
 			return View();
 		}
 
-		public IActionResult Contact()
+		[HttpGet]
+		public ViewResult Contact()
 		{
-			ViewData["Message"] = "Your contact page";
+			return View();
+		}
 
+		[HttpPost]
+		public RedirectToActionResult Contact(UserMessage userMessage)
+		{
+			MessageRepository.AddMessage(userMessage);
+			return RedirectToAction("MessageResponses");
+		}
+
+		public ViewResult MessageResponses()
+		{
 			return View();
 		}
 
@@ -48,13 +59,6 @@ namespace CommunityInformation.Controllers
 
 		public IActionResult Privacy()
 		{
-			return View();
-		}
-
-		public IActionResult ContactEachother()
-		{
-			ViewData["Message"] = "Contact eachother";
-
 			return View();
 		}
 
