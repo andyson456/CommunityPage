@@ -9,6 +9,6 @@ namespace CommunityInformation.Models
 	{
 		//public int MessageID { get; set; }
 		public string Message { get; set; }
-		//public User Messager { get; set; }
+		//public User UserName { get; set; }
 	}
 }

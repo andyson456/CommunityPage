@@ -10,6 +10,7 @@ namespace CommunityInformation.Controllers
 {
 	public class HomeController : Controller
 	{
+
 		public IActionResult Index()
 		{
 			int hour = DateTime.Now.Hour;
@@ -35,12 +36,13 @@ namespace CommunityInformation.Controllers
 		public RedirectToActionResult Contact(UserMessage userMessage)
 		{
 			MessageRepository.AddMessage(userMessage);
-			return RedirectToAction("MessageResponses");
+			return RedirectToAction("MessageResponses", userMessage);
 		}
 
 		public ViewResult MessageResponses()
 		{
-			return View();
+			List<UserMessage> messages = MessageRepository.Messages.ToList();
+			return View(messages);
 		}
 
 		public IActionResult Locations()
