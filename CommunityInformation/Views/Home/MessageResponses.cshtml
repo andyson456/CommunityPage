@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CommunityInformation.Models.UserMessage>
+﻿@model List<UserMessage>
 
 @{
     ViewData["Title"] = "MessageResponses";
@@ -7,13 +7,23 @@
 <h1>MessageResponses</h1>
 
 <table>
-   @{  
-       foreach (CommunityInformation.Models.UserMessage message in Model)
-       {
-        <tr>
-            <td>@message.Message;</td>
-        </tr>
-       }
-   }
+    @{
+        foreach (UserMessage message in Model)
+        {
+            <tr>
+                <td>User : @message.Users[0].Name</td>
+            </tr>
+            <tr>
+                <td>@message.Message</td>
+            </tr>
+            <tr>
+                <td>Date Posted: @message.Date</td>
+            </tr>
+        }
+    }
 </table>
+<br />
+<br />
+
+<a href="Contact">Add another message</a>
 

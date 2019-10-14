@@ -10,6 +10,25 @@ namespace CommunityInformation.Controllers
 {
 	public class HomeController : Controller
 	{
+		UserMessage userMessage;
+
+		public HomeController()
+		{
+			if (MessageRepository.Messages.Count == 0)
+			{
+				userMessage = new UserMessage()
+				{
+					Message = "Some message",
+					Date = "10/11/2019"
+				};
+				userMessage.Users.Add(new User
+				{
+					Name = "Andrew"
+				}
+				);
+				MessageRepository.AddMessage(userMessage);
+			}
+		}
 
 		public IActionResult Index()
 		{
@@ -33,10 +52,14 @@ namespace CommunityInformation.Controllers
 		}
 
 		[HttpPost]
-		public RedirectToActionResult Contact(UserMessage userMessage)
+		public RedirectToActionResult Contact(string message, string user, string date)
 		{
+			userMessage = new UserMessage();
+			userMessage.Message = message;
+			userMessage.Users.Add(new User() { Name = user });
+			userMessage.Date = date;
 			MessageRepository.AddMessage(userMessage);
-			return RedirectToAction("MessageResponses", userMessage);
+			return RedirectToAction("MessageResponses");
 		}
 
 		public ViewResult MessageResponses()

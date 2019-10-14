@@ -7,8 +7,10 @@ namespace CommunityInformation.Models
 {
 	public class UserMessage
 	{
-		//public int MessageID { get; set; }
+		private List<User> users = new List<User>();
+
 		public string Message { get; set; }
-		//public User UserName { get; set; }
+		public string Date { get; set; }
+		public List<User> Users { get { return users; } }
 	}
 }

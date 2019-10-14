@@ -1,13 +1,25 @@
-﻿@model CommunityInformation.Models.UserMessage
+﻿
 
 @{
     ViewData["Title"] = "Contact";
 }
 
-<h1>Your application's contact page</h1>
-<form asp-action="Contact" method="post">
-    <label asp-for="Message">Send a message: </label>
-    <input asp-for="Message" type="text" id="Message" name="Message" value="" style="height:100px; width:400px;"/>
-    <input type="submit" value="Enter" />
-</form>
+<h1>@ViewData["Title"]</h1>
+<div>
+    <form method="post">
+        <label for="Name">User: </label>
+        <input name="Name" />
+        <br />
+        <label for="Date">Date: </label>
+        <input for="Date" type="text" id="Date" name="Date" value="" />
+        <br />
+        <label for="Message">Send a message: </label>
+        <input for="Message" type="text" id="Message" name="Message" value="" style="height:100px; width:400px;" />
+        <br />
+        <input type="submit" value="Enter" />
+    </form>
+    <br />
+    <br />
 
+    <a class="nav-link" asp-action="MessageResponses">Other messages</a>
+</div>
