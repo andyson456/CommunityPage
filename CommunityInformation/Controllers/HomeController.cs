@@ -23,7 +23,7 @@ namespace CommunityInformation.Controllers
 				};
 				userMessage.Users.Add(new User
 				{
-					Name = "Andrew"
+					UserName = "Andrew"
 				}
 				);
 				MessageRepository.AddMessage(userMessage);
@@ -56,7 +56,7 @@ namespace CommunityInformation.Controllers
 		{
 			userMessage = new UserMessage();
 			userMessage.Message = message;
-			userMessage.Users.Add(new User() { Name = user });
+			userMessage.Users.Add(new User() { UserName = user });
 			userMessage.Date = date;
 			MessageRepository.AddMessage(userMessage);
 			return RedirectToAction("MessageResponses");
@@ -64,7 +64,7 @@ namespace CommunityInformation.Controllers
 
 		public ViewResult MessageResponses()
 		{
-			List<UserMessage> messages = MessageRepository.Messages.ToList();
+			List<UserMessage> messages = MessageRepository.Messages;
 			return View(messages);
 		}
 

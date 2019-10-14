@@ -11,6 +11,8 @@ namespace CommunityInformation.Models
 
 		public string Message { get; set; }
 		public string Date { get; set; }
+		public User Name { get; set; }
+
 		public List<User> Users { get { return users; } }
 	}
 }
