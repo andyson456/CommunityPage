@@ -11,13 +11,14 @@
         foreach (UserMessage message in Model)
         {
             <tr>
-                <td>User : @message.Users[0].UserName</td>
+                <td><h2>User : @message.Users[0].UserName</h2></td>
             </tr>
             <tr>
                 <td>@message.Message</td>
             </tr>
             <tr>
                 <td>Date Posted: @message.Date</td>
+                <td><a href="MessageComments">Add a comment</a></td>
             </tr>
         }
     }

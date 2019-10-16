@@ -45,6 +45,12 @@ namespace CommunityInformation.Controllers
 			return View();
 		}
 
+		public IActionResult MessageComments()
+		{
+			ViewData["Message"] = "Message comments page.";
+			return View();
+		}
+
 		[HttpGet]
 		public ViewResult Contact()
 		{
