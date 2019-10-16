@@ -52,11 +52,11 @@ namespace CommunityInformation.Controllers
 		}
 
 		[HttpPost]
-		public RedirectToActionResult Contact(string message, string user, string date)
+		public RedirectToActionResult Contact(string message, string name, string date)
 		{
 			userMessage = new UserMessage();
 			userMessage.Message = message;
-			userMessage.Users.Add(new User() { UserName = user });
+			userMessage.Users.Add(new User() { UserName = name });
 			userMessage.Date = date;
 			MessageRepository.AddMessage(userMessage);
 			return RedirectToAction("MessageResponses");
