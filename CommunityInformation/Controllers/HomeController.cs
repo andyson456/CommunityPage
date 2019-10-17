@@ -49,8 +49,10 @@ namespace CommunityInformation.Controllers
 		}
 
 		[HttpGet]
-		public ViewResult Contact()
+		public IActionResult Contact()
 		{
+			List<UserMessage> messages = MessageRepository.Messages;
+			messages.Sort((m1, m2) => DateTime.Compare(m1.Date, m2.Date));
 			return View();
 		}
 

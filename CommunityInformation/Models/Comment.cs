@@ -10,6 +10,6 @@ namespace CommunityInformation.Models
 		public string CommentText { get; set; }
 		public User UserName { get; set; }
 		public UserMessage UserMessage { get; set; }
-		public DateTime PubDate { get; set; }
+		public DateTime PubDate { get; }
 	}
 }

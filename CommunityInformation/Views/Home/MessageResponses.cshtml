@@ -21,6 +21,7 @@
             @foreach (Comment comment in message.Comments)
             {
                 @comment.CommentText <br />
+                @comment.PubDate.Date<br /><br />
             }
         }
     }
