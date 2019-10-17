@@ -1,7 +1,17 @@
 ﻿
+
 @{
     ViewData["Title"] = "MessageComments";
 }
 
-<h1>MessageComments</h1>
+<h1>Comments for </h1>
+<form method="post">
+    <label for="userName">For user: </label><br />
+    <label for="commentText">Your comment</label><br />
+    <textarea type="text" name="commentText"></textarea><br />
+
+    <input type="submit" value="Enter" />
+</form>
+
+<a href="MessageResponses">Back to messages</a>
 

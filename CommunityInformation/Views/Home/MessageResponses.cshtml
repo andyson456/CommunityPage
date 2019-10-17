@@ -6,23 +6,27 @@
 
 <h1>MessageResponses</h1>
 
-<table>
-    @{
-        foreach (UserMessage message in Model)
+@{
+    foreach (UserMessage message in Model)
+    {
+        <br />
+        <p>User : @message.Users[0].UserName</p>
+        @message.Message
+        <p>Date Posted: @message.Date</p>
+        <a href="MessageComments">Add a comment</a>
+
+        @if (message.Comments.Count > 0)
         {
-            <tr>
-                <td><h2>User : @message.Users[0].UserName</h2></td>
-            </tr>
-            <tr>
-                <td>@message.Message</td>
-            </tr>
-            <tr>
-                <td>Date Posted: @message.Date</td>
-                <td><a href="MessageComments">Add a comment</a></td>
-            </tr>
+            <p>Comments for @message.Users[0].UserName</p>
+            @foreach (Comment comment in message.Comments)
+            {
+                @comment.CommentText <br />
+            }
         }
     }
-</table>
+    <br />
+    <br />
+}
 <br />
 <br />
 

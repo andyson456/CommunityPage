@@ -5,30 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CommunityInformation.Models;
+using System.Web;
 
 namespace CommunityInformation.Controllers
 {
 	public class HomeController : Controller
 	{
 		UserMessage userMessage;
-
-		public HomeController()
-		{
-			if (MessageRepository.Messages.Count == 0)
-			{
-				userMessage = new UserMessage()
-				{
-					Message = "Some message",
-					Date = "10/11/2019"
-				};
-				userMessage.Users.Add(new User
-				{
-					UserName = "Andrew"
-				}
-				);
-				MessageRepository.AddMessage(userMessage);
-			}
-		}
+		Comment comment;
 
 		public IActionResult Index()
 		{
@@ -45,10 +29,23 @@ namespace CommunityInformation.Controllers
 			return View();
 		}
 
-		public IActionResult MessageComments()
+		[HttpGet]
+		public ViewResult MessageComments()
 		{
-			ViewData["Message"] = "Message comments page.";
 			return View();
+		}
+
+		[HttpPost]
+		public RedirectToActionResult MessageComments(string commentText, string userName)
+		{
+			UserMessage message = new UserMessage();
+			message.Comments.Add(new Comment()
+			{
+				UserName = new User() { UserName = userName },
+				CommentText = commentText
+			});
+			
+			return RedirectToAction("MessageResponses");
 		}
 
 		[HttpGet]
@@ -63,7 +60,7 @@ namespace CommunityInformation.Controllers
 			userMessage = new UserMessage();
 			userMessage.Message = message;
 			userMessage.Users.Add(new User() { UserName = name });
-			userMessage.Date = date;
+			userMessage.Date = DateTime.Parse(date);
 			MessageRepository.AddMessage(userMessage);
 			return RedirectToAction("MessageResponses");
 		}
@@ -73,6 +70,13 @@ namespace CommunityInformation.Controllers
 			List<UserMessage> messages = MessageRepository.Messages;
 			return View(messages);
 		}
+
+		public IActionResult MessageComments(string title)
+		{
+			return View("AddComment", HttpUtility.HtmlDecode(title));
+		}
+
+
 
 		public IActionResult Locations()
 		{
