@@ -5,6 +5,7 @@
 }
 
 <h1>MessageResponses</h1>
+<button onclick="window.location.href='Contact'">Add a message</button><br /><br />
 
 @{
     foreach (UserMessage message in Model)
@@ -21,15 +22,11 @@
             @foreach (Comment comment in message.Comments)
             {
                 @comment.CommentText <br />
-                @comment.PubDate.Date<br /><br />
+                @comment.PubDate <br />
             }
         }
     }
     <br />
     <br />
 }
-<br />
-<br />
-
-<a href="Contact">Add another message</a>
 

@@ -11,7 +11,7 @@ namespace CommunityInformation.Models
 		private List<Comment> comments = new List<Comment>();
 
 		public string Message { get; set; }
-		public DateTime Date { get; set; }
+		public DateTime Date { get; set; } = DateTime.Now;
 		public User Name { get; set; }
 
 		public List<User> Users { get { return users; } }
