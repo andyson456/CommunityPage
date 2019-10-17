@@ -1,7 +1,14 @@
-﻿
+﻿@model  List<ImportantPeople>
+
 @{
     ViewData["Title"] = "People";
 }
 
 <h1>People</h1>
+
+@foreach(ImportantPeople person in PeopleRepository.People)
+{
+    <p>@person.FirstName, @person.LastName</p>
+    <p>@person.BirthDate - @person.DeathDate</p>
+}
 

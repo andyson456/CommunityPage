@@ -12,6 +12,7 @@ namespace CommunityInformation.Controllers
 	public class HomeController : Controller
 	{
 		UserMessage userMessage;
+		ImportantPeople people;
 		Comment comment;
 
 		public IActionResult Index()
@@ -49,6 +50,26 @@ namespace CommunityInformation.Controllers
 		}
 
 		[HttpGet]
+		public IActionResult People()
+		{
+			List<ImportantPeople> peoples = PeopleRepository.People;
+			peoples.Sort((p1, p2) => string.Compare(p1.LastName, p2.LastName, StringComparison.Ordinal));
+			return View();
+		}
+
+		[HttpPost]
+		public RedirectToActionResult People(string firstName, string lastName, string birthDate, string deathDate)
+		{
+			people = new ImportantPeople();
+			people.FirstName = firstName;
+			people.LastName = lastName;
+			people.BirthDate = birthDate;
+			people.DeathDate = deathDate;
+			PeopleRepository.AddPeople(people);
+			return RedirectToAction("People");
+		}
+
+		[HttpGet]
 		public IActionResult Contact()
 		{
 			List<UserMessage> messages = MessageRepository.Messages;
@@ -77,18 +98,9 @@ namespace CommunityInformation.Controllers
 			return View("AddComment", HttpUtility.HtmlDecode(title));
 		}
 
-
-
 		public IActionResult Locations()
 		{
 			ViewData["Message"] = "Important locations and links";
-
-			return View();
-		}
-
-		public IActionResult People()
-		{
-			ViewData["Message"] = "Significant people and links";
 
 			return View();
 		}
