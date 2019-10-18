@@ -49,6 +49,15 @@ namespace CommunityInformation.Models
 			};
 			People.Add(person3);
 
+			ImportantPeople person4 = new ImportantPeople()
+			{
+				BirthDate = "12/12/1901",
+				DeathDate = "05/09/1968",
+				FirstName = "Terry",
+				LastName = "Anderson"
+			};
+			People.Add(person4);
+
 		}
 	}
 }

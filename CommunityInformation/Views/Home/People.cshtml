@@ -4,11 +4,11 @@
     ViewData["Title"] = "People";
 }
 
-<h1>People</h1>
+<h1>Important People</h1>
 
 @foreach(ImportantPeople person in PeopleRepository.People)
 {
-    <p>@person.FirstName, @person.LastName</p>
-    <p>@person.BirthDate - @person.DeathDate</p>
+    <p>@person.FirstName @person.LastName</p>
+    <p>@person.BirthDate - @person.DeathDate</p><br />
 }
 
