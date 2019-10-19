@@ -24,37 +24,37 @@ namespace CommunityInformation.Models
 		{
 			ImportantPeople person1 = new ImportantPeople()
 			{
-				BirthDate = "04/09/1933",
-				DeathDate = "01/01/1994",
-				FirstName = "Henry",
-				LastName = "Rollins"
+				BirthDate = "02/24/1938",
+				DeathDate = "Current",
+				FirstName = "Phillup",
+				LastName = "Knight"
 			};
 			People.Add(person1);
 
 			ImportantPeople person2 = new ImportantPeople()
 			{
-				BirthDate = "10/28/1853",
-				DeathDate = "04/01/1912",
-				FirstName = "Dirk",
-				LastName = "Diggler"
+				BirthDate = "09/13/1809",
+				DeathDate = "12/15/1864",
+				FirstName = "Eugene",
+				LastName = "Skinner"
 			};
 			People.Add(person2);
 
 			ImportantPeople person3 = new ImportantPeople()
 			{
-				BirthDate = "08/08/1912",
-				DeathDate = "01/01/1973",
-				FirstName = "Forest",
-				LastName = "Gump"
+				BirthDate = "01/25/1951",
+				DeathDate = "05/30/1975",
+				FirstName = "Steve",
+				LastName = "Prefontaine"
 			};
 			People.Add(person3);
 
 			ImportantPeople person4 = new ImportantPeople()
 			{
-				BirthDate = "12/12/1901",
-				DeathDate = "05/09/1968",
-				FirstName = "Terry",
-				LastName = "Anderson"
+				BirthDate = "06/08/1965",
+				DeathDate = "Current",
+				FirstName = "Stanley",
+				LastName = "Love"
 			};
 			People.Add(person4);
 
