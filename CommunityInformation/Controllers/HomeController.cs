@@ -13,6 +13,7 @@ namespace CommunityInformation.Controllers
 	{
 		UserMessage userMessage;
 		ImportantPeople people;
+		ImportantLocations location;
 		Comment comment;
 
 		public IActionResult Index()
@@ -47,6 +48,25 @@ namespace CommunityInformation.Controllers
 			});
 			
 			return RedirectToAction("MessageResponses");
+		}
+
+		[HttpGet]
+		public IActionResult Locations()
+		{
+			List<ImportantLocations> locations = LocationsRepository.Locations;
+			locations.Sort((l1, l2) => string.Compare(l1.LocationName, l2.LocationName, StringComparison.Ordinal));
+			return View();
+		}
+
+		[HttpPost]
+		public RedirectToActionResult Locations(string locationName, string description, string dateEstablished)
+		{
+			location = new ImportantLocations();
+			location.LocationName = locationName;
+			location.Description = description;
+			location.DateEstablished = dateEstablished;
+			LocationsRepository.AddLocation(location);
+			return RedirectToAction("Locations");
 		}
 
 		[HttpGet]
@@ -96,13 +116,6 @@ namespace CommunityInformation.Controllers
 		public IActionResult MessageComments(string title)
 		{
 			return View("AddComment", HttpUtility.HtmlDecode(title));
-		}
-
-		public IActionResult Locations()
-		{
-			ViewData["Message"] = "Important locations and links";
-
-			return View();
 		}
 
 		public IActionResult Privacy()

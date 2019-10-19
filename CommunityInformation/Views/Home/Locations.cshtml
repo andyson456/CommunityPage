@@ -1,7 +1,15 @@
-﻿
+﻿@model  List<ImportantLocations>
+
 @{
     ViewData["Title"] = "Locations";
 }
 
 <h1>Locations</h1>
+
+@foreach(ImportantLocations location in LocationsRepository.Locations)
+{
+    <h2>@location.LocationName</h2>
+    <p>@location.Description</p>
+    <p>@location.DateEstablished</p><br />
+}
 

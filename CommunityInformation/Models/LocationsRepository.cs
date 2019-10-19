@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CommunityInformation.Models
 {
-	public class LocationsRepository
+	public static class LocationsRepository
 	{
 		private static List<ImportantLocations> locations = new List<ImportantLocations>();
 		public static List<ImportantLocations> Locations { get { return locations; } }
@@ -26,9 +26,10 @@ namespace CommunityInformation.Models
 			{
 				LocationName = "Spencer's Butte",
 				Description = "A butte located in South Eugene. Named after a young Englishmen who" +
-	                          "is thought to have been killed from the Kalapuya while hiking the Butte alone",
+	                          " is thought to have been killed from the Kalapuya while hiking the Butte alone",
 				DateEstablished = "20 - 30 million years old"
 			};
+			Locations.Add(location1);
 
 			ImportantLocations location2 = new ImportantLocations()
 			{
@@ -36,6 +37,7 @@ namespace CommunityInformation.Models
 				Description = "College University located in the campus area of Eugene",
 				DateEstablished = "1876"
 			};
+			Locations.Add(location2);
 
 			ImportantLocations location3 = new ImportantLocations()
 			{
@@ -43,6 +45,7 @@ namespace CommunityInformation.Models
 				Description = "Football arena located in East Eugene",
 				DateEstablished = "September 23, 1967"
 			};
+			Locations.Add(location3);
 
 			ImportantLocations location4 = new ImportantLocations()
 			{
@@ -50,6 +53,7 @@ namespace CommunityInformation.Models
 				Description = "A concert venue located in Downtown Eugene",
 				DateEstablished = "1982"
 			};
+			Locations.Add(location4);
 		}
 	}
 	
