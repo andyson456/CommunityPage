@@ -32,21 +32,28 @@ namespace CommunityInformation.Controllers
 		}
 
 		[HttpGet]
-		public ViewResult MessageComments()
+		public ViewResult MessageComments(UserMessage usermessage)
 		{
-			return View();
+
+			return View(usermessage);
 		}
 
 		[HttpPost]
-		public RedirectToActionResult MessageComments(string commentText, string userName)
+		public RedirectToActionResult MessageComments(string commentText, string userName, Guid messageKey)
 		{
 			UserMessage message = new UserMessage();
 			message.Comments.Add(new Comment()
 			{
+				MessageKey = messageKey,
 				UserName = new User() { UserName = userName },
 				CommentText = commentText
 			});
-			
+			MessageRepository.AddComment(new Comment()
+			{
+				MessageKey = messageKey,
+				UserName = new User() { UserName = userName },
+				CommentText = commentText
+			});
 			return RedirectToAction("MessageResponses");
 		}
 
@@ -101,6 +108,7 @@ namespace CommunityInformation.Controllers
 		public RedirectToActionResult Contact(string message, string name)
 		{
 			userMessage = new UserMessage();
+			userMessage.MessageKey = Guid.NewGuid();
 			userMessage.Message = message;
 			userMessage.Users.Add(new User() { UserName = name });
 			MessageRepository.AddMessage(userMessage);

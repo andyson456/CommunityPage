@@ -1,4 +1,4 @@
-﻿
+﻿@model UserMessage
 
 @{
     ViewData["Title"] = "MessageComments";
@@ -9,6 +9,7 @@
     <label for="userName">For user: </label><br />
     <label for="commentText">Your comment</label><br />
     <textarea type="text" name="commentText"></textarea><br />
+    @Html.HiddenFor(m => m.MessageKey)
 
     <input type="submit" value="Enter" />
 </form>

@@ -14,7 +14,14 @@
         <p>User : @message.Users[0].UserName</p>
         @message.Message
         <p>Date Posted: @message.Date</p>
-        <a href="MessageComments">Add a comment</a>
+        @*<a href="MessageComments">Add a comment</a>*@
+        @Html.ActionLink(
+                "Add a comment",
+                "MessageComments",
+                "Home",
+                message,
+                null
+            )
 
         @if (message.Comments.Count > 0)
         {

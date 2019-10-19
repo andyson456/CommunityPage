@@ -51,5 +51,15 @@ namespace CommunityInformation.Models
 			message.Comments.Add(comment2);
 			messages.Add(message);
 		}
+
+		internal static void AddComment(Comment comment)
+		{
+			var message = Messages.FirstOrDefault(msg => msg.MessageKey == comment.MessageKey);
+			if (message == null)
+			{
+				return;
+			}
+			message.Comments.Add(comment);
+		}
 	}
 }
