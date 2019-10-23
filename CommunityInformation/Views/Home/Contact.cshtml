@@ -7,10 +7,10 @@
 <h1>@ViewData["Title"]</h1>
 <div>
     <form method="post">
-        <label for="Name">User: </label>
+        <label for="Name" asp-validation-for="Name">User: </label>
         <input name="Name" />
         <br />
-        <label for="Message">Send a message: </label>
+        <label for="Message" asp-validation-for="Message">Send a message: </label>
         <input for="Message" type="text" id="Message" name="Message" value="" style="height:100px; width:400px;" />
         <br />
         <input type="submit" value="Enter" />
