@@ -34,7 +34,6 @@ namespace CommunityInformation.Controllers
 		[HttpGet]
 		public ViewResult MessageComments(UserMessage usermessage)
 		{
-
 			return View(usermessage);
 		}
 
@@ -61,6 +60,7 @@ namespace CommunityInformation.Controllers
 		public IActionResult Locations()
 		{
 			List<ImportantLocations> locations = LocationsRepository.Locations;
+			ViewBag.locationsCount = locations.Count();
 			locations.Sort((l1, l2) => string.Compare(l1.LocationName, l2.LocationName, StringComparison.Ordinal));
 			return View();
 		}
@@ -80,6 +80,7 @@ namespace CommunityInformation.Controllers
 		public IActionResult People()
 		{
 			List<ImportantPeople> peoples = PeopleRepository.People;
+			ViewBag.peopleCount = peoples.Count();
 			peoples.Sort((p1, p2) => string.Compare(p1.LastName, p2.LastName, StringComparison.Ordinal));
 			return View();
 		}
