@@ -119,6 +119,7 @@ namespace CommunityInformation.Controllers
 		public ViewResult MessageResponses()
 		{
 			List<UserMessage> messages = MessageRepository.Messages;
+			ViewData["NewestMessage"] = messages[messages.Count - 1].Message;
 			return View(messages);
 		}
 
