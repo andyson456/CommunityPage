@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using CommunityInformation.Models;
 using System.Web;
 
@@ -23,6 +24,14 @@ namespace CommunityInformation.Controllers
 
 			return View("Index");
 		}
+
+		public StatusCodeResult Status404() => StatusCode(StatusCodes.Status404NotFound);
+
+		public StatusCodeResult BadRequestPage() => StatusCode(StatusCodes.Status400BadRequest);
+
+		public JsonResult JsonPage() => Json(new[] { "Look", "at", "these", "objects" });
+
+		public ObjectResult ObjectPage() => Ok(new string[] { "A", "page", "that", "displays", "objects" });
 
 		public IActionResult History()
 		{
