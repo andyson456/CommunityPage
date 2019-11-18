@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace CommunityInformation.Models
 {
-	public class MessageRepository : IMessageRepository
+	public class FakeMessageRepository : IMessageRepository
 	{
 		private List<UserMessage> messages = new List<UserMessage>();
-		public  List<UserMessage> Messages { get { return messages; } }
+		public List<UserMessage> Messages { get { return messages; } }
 
-		public MessageRepository()
+		public FakeMessageRepository()
 		{
 			AddTestData();
 		}

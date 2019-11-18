@@ -15,7 +15,12 @@ namespace CommunityInformation.Controllers
 		UserMessage userMessage;
 		ImportantPeople people;
 		ImportantLocations location;
-		Comment comment;
+		IMessageRepository repo;
+
+		public HomeController(IMessageRepository r)
+		{
+			repo = r;
+		}
 
 		public IActionResult Index()
 		{
@@ -56,7 +61,7 @@ namespace CommunityInformation.Controllers
 				UserName = new User() { UserName = userName },
 				CommentText = commentText
 			});
-			MessageRepository.AddComment(new Comment()
+			repo.AddComment(new Comment()
 			{
 				MessageKey = messageKey,
 				UserName = new User() { UserName = userName },
@@ -109,7 +114,7 @@ namespace CommunityInformation.Controllers
 		[HttpGet]
 		public IActionResult Contact()
 		{
-			List<UserMessage> messages = MessageRepository.Messages;
+			List<UserMessage> messages = repo.Messages;
 			messages.Sort((m1, m2) => DateTime.Compare(m1.Date, m2.Date));
 			return View();
 		}
@@ -121,13 +126,13 @@ namespace CommunityInformation.Controllers
 			userMessage.MessageKey = Guid.NewGuid();
 			userMessage.Message = message;
 			userMessage.Users.Add(new User() { UserName = name });
-			MessageRepository.AddMessage(userMessage);
+			repo.AddMessage(userMessage);
 			return RedirectToAction("MessageResponses");
 		}
 
 		public ViewResult MessageResponses()
 		{
-			List<UserMessage> messages = MessageRepository.Messages;
+			List<UserMessage> messages = repo.Messages;
 			ViewData["NewestMessage"] = messages[messages.Count - 1].Message;
 			return View(messages);
 		}
