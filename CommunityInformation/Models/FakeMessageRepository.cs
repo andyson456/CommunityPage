@@ -7,7 +7,7 @@ namespace CommunityInformation.Models
 {
 	public class FakeMessageRepository : IMessageRepository
 	{
-		private List<UserMessage> messages = new List<UserMessage>();
+		private static List<UserMessage> messages = new List<UserMessage>();
 		public List<UserMessage> Messages { get { return messages; } }
 
 		public FakeMessageRepository()
@@ -25,7 +25,11 @@ namespace CommunityInformation.Models
 			UserMessage message = new UserMessage()
 			{
 				Message = "Some message",
-				Date = new DateTime(2002, 4, 3)
+				Date = new DateTime(2002, 4, 3),
+				User = new User
+				{
+					UserName = "Andrew"
+				}
 			};
 			message.Users.Add(new User
 			{
@@ -39,7 +43,11 @@ namespace CommunityInformation.Models
 			message = new UserMessage()
 			{
 				Message = "Another message",
-				Date = new DateTime(2001, 5, 11)
+				Date = new DateTime(2001, 5, 11),
+				User = new User
+				{
+					UserName = "Jason"
+				}
 			};
 			message.Users.Add(new User
 			{

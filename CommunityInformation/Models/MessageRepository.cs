@@ -7,12 +7,15 @@ namespace CommunityInformation.Models
 {
 	public class MessageRepository : IMessageRepository
 	{
-		private List<UserMessage> messages = new List<UserMessage>();
-		public  List<UserMessage> Messages { get { return messages; } }
+		private static List<UserMessage> messages = new List<UserMessage>();
+		public List<UserMessage> Messages { get { return messages; } }
 
 		public MessageRepository()
 		{
-			AddTestData();
+			if (messages.Count == 0)
+			{
+				AddTestData();
+			}
 		}
 
 		public void AddMessage(UserMessage message)

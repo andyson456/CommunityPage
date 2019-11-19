@@ -14,7 +14,7 @@ namespace CommunityInformation.Models
 		public Guid UserKey { get; set; }
 		public string Message { get; set; }
 		public DateTime Date { get; set; } = DateTime.Now;
-		public User Name { get; set; }
+		public User User { get; set; }
 
 		public List<User> Users { get { return users; } }
 		public List<Comment> Comments { get { return comments; } }
