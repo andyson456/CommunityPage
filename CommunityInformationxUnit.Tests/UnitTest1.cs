@@ -2,6 +2,8 @@ using System;
 using Xunit;
 using CommunityInformation.Controllers;
 using CommunityInformation.Models;
+using FluentAssertions;
+using System.Linq;
 
 namespace CommunityInformationxUnit.Tests
 {
@@ -13,14 +15,55 @@ namespace CommunityInformationxUnit.Tests
 			// Arrange
 			var repo = new FakeMessageRepository();
 			var homeController = new HomeController(repo);
-			var user = repo.Messages[repo.Messages.Count - 1].User.UserName;
 
 			// Act
 			homeController.Contact("Hello", "RandomName");
 
 			// Assert
 			Assert.Equal("Hello", repo.Messages[repo.Messages.Count - 1].Message);
-			//Assert.Equal("RandomName", user);
+		}
+
+		[Fact]
+		public void AddCommentTest()
+		{
+			// Arrange
+			var repo = new FakeMessageRepository();
+			var homeController = new HomeController(repo);
+
+			// Act
+			var key = new Guid();
+			var userMessage = new UserMessage();
+			userMessage.MessageKey = key;
+			userMessage.Message = "test123";
+			userMessage.Users.Add(new User() { UserName = "jake" });
+			repo.AddMessage(userMessage);
+
+			homeController.MessageComments("test123", "name", key);
+
+			var message = repo.Messages.FirstOrDefault(m => m.MessageKey == key);
+			if (message == null)
+			{
+				Assert.False(true);
+				return;
+			}
+			// Assert
+			var comment = message.Comments.FirstOrDefault(m => m.CommentText == "test123");
+			if (comment == null)
+			{
+				Assert.False(true);
+				return;
+			}
+		}
+
+		[Fact]
+		public void Status404Test()
+		{
+			var repo = new FakeMessageRepository();
+			var homeController = new HomeController(repo);
+
+			var response = homeController.Status404();
+
+			Assert.Equal(404, response.StatusCode);
 		}
 	}
 }
