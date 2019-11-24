@@ -12,7 +12,7 @@ namespace CommunityInformation.Models
 
 		public FakeMessageRepository()
 		{
-			AddTestData();
+			//AddTestData();
 		}
 
 		public void AddMessage(UserMessage message)
@@ -20,49 +20,49 @@ namespace CommunityInformation.Models
 			messages.Add(message);
 		}
 
-		void AddTestData()
-		{
-			UserMessage message = new UserMessage()
-			{
-				Message = "Some message",
-				Date = new DateTime(2002, 4, 3),
-				User = new User
-				{
-					UserName = "Andrew"
-				}
-			};
-			message.Users.Add(new User
-			{
-				UserName = "Andrew"
-			}
-			);
-			Comment comment1 = new Comment() { CommentText = "I DON'T LIKE THIS MESSAGE" };
-			message.Comments.Add(comment1);
-			messages.Add(message);
+		//void AddTestData()
+		//{
+		//	UserMessage message = new UserMessage()
+		//	{
+		//		Message = "Some message",
+		//		Date = new DateTime(2002, 4, 3),
+		//		User = new User
+		//		{
+		//			UserName = "Andrew"
+		//		}
+		//	};
+		//	message.Users.Add(new User
+		//	{
+		//		UserName = "Andrew"
+		//	}
+		//	);
+		//	Comment comment1 = new Comment() { CommentText = "I DON'T LIKE THIS MESSAGE" };
+		//	message.Comments.Add(comment1);
+		//	messages.Add(message);
 
-			message = new UserMessage()
-			{
-				Message = "Another message",
-				Date = new DateTime(2001, 5, 11),
-				User = new User
-				{
-					UserName = "Jason"
-				}
-			};
-			message.Users.Add(new User
-			{
-				UserName = "Jason"
-			}
-			);
+		//	message = new UserMessage()
+		//	{
+		//		Message = "Another message",
+		//		Date = new DateTime(2001, 5, 11),
+		//		User = new User
+		//		{
+		//			UserName = "Jason"
+		//		}
+		//	};
+		//	message.Users.Add(new User
+		//	{
+		//		UserName = "Jason"
+		//	}
+		//	);
 
-			Comment comment2 = new Comment() { CommentText = "This is a comment" };
-			message.Comments.Add(comment2);
-			messages.Add(message);
-		}
+		//	Comment comment2 = new Comment() { CommentText = "This is a comment" };
+		//	message.Comments.Add(comment2);
+		//	messages.Add(message);
+		//}
 
 		void IMessageRepository.AddComment(Comment comment)
 		{
-			var message = Messages.FirstOrDefault(msg => msg.MessageKey == comment.MessageKey);
+			var message = Messages.FirstOrDefault(msg => msg.MessageID == comment.MessageID);
 			if (message == null)
 			{
 				return;
