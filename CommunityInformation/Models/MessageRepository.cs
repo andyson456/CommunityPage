@@ -11,8 +11,7 @@ namespace CommunityInformation.Models
 		private AppDbContext context;
 		
 		public List<UserMessage> Messages { get {
-				return context.Messages.Include("C" +
-					"omments").ToList(); } }
+				return context.Messages.Include("Comments").Include("Users").ToList(); } }
 
 		public MessageRepository(AppDbContext appDbContext)
 		{
