@@ -10,7 +10,9 @@ namespace CommunityInformation.Models
 	{
 		private AppDbContext context;
 		
-		public List<UserMessage> Messages { get { return context.Messages.Include("Messages").Include("Comments").ToList(); } }
+		public List<UserMessage> Messages { get {
+				return context.Messages.Include("C" +
+					"omments").ToList(); } }
 
 		public MessageRepository(AppDbContext appDbContext)
 		{
@@ -25,7 +27,7 @@ namespace CommunityInformation.Models
 
 		public void AddComment(Comment comment)
 		{
-			var message = Messages.FirstOrDefault(msg => msg.MessageID == comment.MessageID);
+			var message = Messages.FirstOrDefault(msg => msg.MessageKey == comment.MessageKey);
 			if (message == null)
 			{
 				return;

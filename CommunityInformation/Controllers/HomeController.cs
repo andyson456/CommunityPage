@@ -57,13 +57,13 @@ namespace CommunityInformation.Controllers
 			UserMessage message = new UserMessage();
 			message.Comments.Add(new Comment()
 			{
-				MessageID = messageKey,
+				MessageKey = messageKey,
 				UserName = new User() { UserName = userName },
 				CommentText = commentText
 			});
 			repo.AddComment(new Comment()
 			{
-				MessageID = messageKey,
+				MessageKey = messageKey,
 				UserName = new User() { UserName = userName },
 				CommentText = commentText
 			});
@@ -123,7 +123,7 @@ namespace CommunityInformation.Controllers
 		public RedirectToActionResult Contact(string message, string name)
 		{
 			userMessage = new UserMessage();
-			userMessage.MessageID = Guid.NewGuid();
+			userMessage.MessageKey = Guid.NewGuid();
 			userMessage.Message = message;
 			userMessage.Users.Add(new User() { UserName = name });
 			repo.AddMessage(userMessage);

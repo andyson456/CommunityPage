@@ -62,7 +62,7 @@ namespace CommunityInformation.Models
 
 		void IMessageRepository.AddComment(Comment comment)
 		{
-			var message = Messages.FirstOrDefault(msg => msg.MessageID == comment.MessageID);
+			var message = Messages.FirstOrDefault(msg => msg.MessageKey == comment.MessageKey);
 			if (message == null)
 			{
 				return;
