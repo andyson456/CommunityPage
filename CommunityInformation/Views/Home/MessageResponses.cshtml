@@ -4,13 +4,14 @@
     Layout = "_myLayoutPage";
 }
 
-<h1>MessageResponses</h1>
+<h1>Message Responses</h1>
 <p>Newest message: <i>@ViewData["newestMessage"]</i></p>
 <button onclick="window.location.href='Contact'">Add a message</button><br /><br />
 
 @{
     foreach (UserMessage message in Model)
     {
+        
         <br />
         <p>User : @message.Users[0].UserName</p>
         @message.Message
@@ -23,16 +24,17 @@
                 message,
                 null
             )
-
         @if (message.Comments.Count > 0)
         {
             <p>Comments for @message.Users[0].UserName</p>
             @foreach (Comment comment in message.Comments)
             {
-                @comment.CommentText <br />
+                
+                <p>Comment: @comment.CommentText </p><br />
                 @comment.PubDate <br />
             }
         }
+        
     }
     <br />
     <br />
