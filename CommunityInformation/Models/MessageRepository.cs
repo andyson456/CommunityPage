@@ -18,6 +18,16 @@ namespace CommunityInformation.Models
 			}
 		}
 
+		public void AddComment(Comment comment)
+		{
+			var message = Messages.FirstOrDefault(msg => msg.MessageKey == comment.MessageKey);
+			if (message == null)
+			{
+				return;
+			}
+			message.Comments.Add(comment);
+		}
+
 		public void AddMessage(UserMessage message)
 		{
 			messages.Add(message);
@@ -53,16 +63,6 @@ namespace CommunityInformation.Models
 			Comment comment2 = new Comment() { CommentText = "This is a comment" };
 			message.Comments.Add(comment2);
 			messages.Add(message);
-		}
-
-		void IMessageRepository.AddComment(Comment comment)
-		{
-			var message = Messages.FirstOrDefault(msg => msg.MessageKey == comment.MessageKey);
-			if (message == null)
-			{
-				return;
-			}
-			message.Comments.Add(comment);
 		}
 	}
 }
