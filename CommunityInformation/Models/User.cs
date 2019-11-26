@@ -10,6 +10,7 @@ namespace CommunityInformation.Models
 		private List<Comment> comments = new List<Comment>();
 		//private List<UserMessage> messages = new List<UserMessage>();
 
+		public int UserID { get; set; }
 		public Guid UserKey { get; set; }
 		public string UserName { get; set; }
 

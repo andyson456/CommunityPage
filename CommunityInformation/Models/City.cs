@@ -7,6 +7,7 @@ namespace CommunityInformation.Models
 {
 	public class City
 	{
+		public int CityID { get; set; }
 		public string Name { get; set; }
 		public DateTime DateFounded { get; set; }
 	}
