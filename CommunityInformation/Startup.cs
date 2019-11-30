@@ -39,7 +39,7 @@ namespace CommunityInformation
 			services.AddTransient<IMessageRepository, MessageRepository>();
 
 			services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
-				Configuration["Data:CommunityPage:ConnectionString"]));
+				Configuration["ConnectionStrings:ConnectionString"]));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
