@@ -11,8 +11,14 @@ namespace CommunityInformation.Models
 		[Key]
 		public int CommentID { get; set; }
 		public Guid MessageKey { get; set; }
+
+		[Required]
 		public string CommentText { get; set; }
+
+		[Required]
 		public User UserName { get; set; }
+
+		[Display(Name = "Comment Post Date"), DataType(DataType.Date)]
 		public DateTime PubDate { get; set; } = DateTime.Now;
 	}
 }

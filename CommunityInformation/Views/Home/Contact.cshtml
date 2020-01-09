@@ -8,10 +8,10 @@
 <div>
     <form method="post">
         <label for="Name" asp-validation-for="Name">User: </label>
-        <input name="Name" />
+        <input name="Name" required="required"/>
         <br />
         <label for="Message" asp-validation-for="Message">Send a message: </label>
-        <input for="Message" type="text" id="Message" name="Message" value="" style="height:100px; width:400px;" />
+        <input for="Message" required="required" type="text" id="Message" name="Message" value="" style="height:100px; width:400px;" />
         <br />
         <input type="submit" value="Enter" />
     </form>

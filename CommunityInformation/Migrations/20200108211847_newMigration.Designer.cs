@@ -4,14 +4,16 @@ using CommunityInformation.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CommunityInformation.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200108211847_newMigration")]
+    partial class newMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,8 +42,7 @@ namespace CommunityInformation.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CommentText")
-                        .IsRequired();
+                    b.Property<string>("CommentText");
 
                     b.Property<Guid>("MessageKey");
 
@@ -49,7 +50,7 @@ namespace CommunityInformation.Migrations
 
                     b.Property<int?>("UserMessageMessageID");
 
-                    b.Property<int>("UserNameUserID");
+                    b.Property<int?>("UserNameUserID");
 
                     b.HasKey("CommentID");
 
@@ -147,8 +148,7 @@ namespace CommunityInformation.Migrations
 
                     b.HasOne("CommunityInformation.Models.User", "UserName")
                         .WithMany("Comments")
-                        .HasForeignKey("UserNameUserID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserNameUserID");
                 });
 
             modelBuilder.Entity("CommunityInformation.Models.User", b =>

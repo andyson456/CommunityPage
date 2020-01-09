@@ -14,6 +14,8 @@ namespace CommunityInformation.Models
 		
 		public int UserID { get; set; }
 		public Guid UserKey { get; set; }
+
+		[Required]
 		public string UserName { get; set; }
 
 		public List<Comment> Comments { get { return comments; } }

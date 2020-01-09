@@ -48,6 +48,8 @@ namespace CommunityInformation.Controllers
 		[HttpGet]
 		public ViewResult MessageComments(UserMessage usermessage)
 		{
+			List<UserMessage> messages = repo.Messages;
+			ViewBag.CommentForUser = messages[messages.Count - 1].Users[0].UserName;
 			return View(usermessage);
 		}
 
@@ -126,7 +128,12 @@ namespace CommunityInformation.Controllers
 			userMessage.MessageKey = Guid.NewGuid();
 			userMessage.Message = message;
 			userMessage.Users.Add(new User() { UserName = name });
-			repo.AddMessage(userMessage);
+		
+			if (ModelState.IsValid)
+			{
+				repo.AddMessage(userMessage);
+			}
+			
 			return RedirectToAction("MessageResponses");
 		}
 
@@ -135,11 +142,6 @@ namespace CommunityInformation.Controllers
 			List<UserMessage> messages = repo.Messages;
 			ViewData["NewestMessage"] = messages[messages.Count - 1].Message;
 			return View(messages);
-		}
-
-		public IActionResult MessageComments(string title)
-		{
-			return View("AddComment", HttpUtility.HtmlDecode(title));
 		}
 
 		public IActionResult Privacy()

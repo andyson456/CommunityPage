@@ -13,9 +13,16 @@ namespace CommunityInformation.Models
 
 		[Key]
 		public int MessageID { get; set; }
+
 		public Guid MessageKey { get; set; }
+
+		[Required]
+		[StringLength(200, MinimumLength = 0)]
 		public string Message { get; set; }
+
+		[Display(Name = "Post Date"), DataType(DataType.Date)]
 		public DateTime Date { get; set; } = DateTime.Now;
+
 		public User User { get; set; }
 
 		public List<User> Users { get { return users; } }
