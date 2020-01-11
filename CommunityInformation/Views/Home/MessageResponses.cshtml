@@ -13,6 +13,7 @@
     {
         
         <br />
+<<<<<<< HEAD
         <p>User : @message.Users[0].UserName</p>
         @message.Message
         <p>Date Posted: @message.Date</p>
@@ -25,13 +26,36 @@
                 null
             )
         @if (message.Comments.Count > 0)
+=======
+        @if (message.Users.Count > 0)
+>>>>>>> ef
         {
-            <p>Comments for @message.Users[0].UserName</p>
-            @foreach (Comment comment in message.Comments)
+            <p>User : @message.Users[0].UserName</p>
+            @message.Message
+            <p>Date Posted: @message.Date</p>
+            @*<a href="MessageComments">Add a comment</a>*@
+            @Html.ActionLink(
+                    "Add a comment",
+                    "MessageComments",
+                    "Home",
+                    message,
+                    null
+                )
+
+            @if (message.Comments.Count > 0)
             {
+<<<<<<< HEAD
                 
                 <p>Comment: @comment.CommentText </p><br />
                 @comment.PubDate <br />
+=======
+                <p>Comments for @message.Users[0].UserName</p>
+                @foreach (Comment comment in message.Comments)
+                {
+                    @comment.CommentText <br />
+                    @comment.PubDate <br />
+                }
+>>>>>>> ef
             }
         }
         

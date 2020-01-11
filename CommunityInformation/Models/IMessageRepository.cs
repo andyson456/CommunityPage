@@ -10,6 +10,5 @@ namespace CommunityInformation.Models
 		List<UserMessage> Messages { get; }
 		void AddMessage(UserMessage message);
 		void AddComment(Comment comment);
-		
 	}
 }

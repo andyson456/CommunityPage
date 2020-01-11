@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,6 +11,10 @@ namespace CommunityInformation.Models
 		private List<User> users = new List<User>();
 		private List<Comment> comments = new List<Comment>();
 
+<<<<<<< HEAD
+=======
+		[Key]
+>>>>>>> ef
 		public int MessageID { get; set; }
 		public Guid MessageKey { get; set; }
 		public string Message { get; set; }
